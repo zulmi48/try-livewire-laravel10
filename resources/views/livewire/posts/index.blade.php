@@ -1,3 +1,5 @@
-<div>
-    Post Index : Do your work, then step back.
+<div class="row">
+    <div class="col-md-6">
+        <livewire:posts.create/>
+    </div>
 </div>
