@@ -20,6 +20,8 @@ class Create extends Component
 
         $user->post()->create($validated);
 
+        flash('New data has successfully created', 'success');
+
         $this->reset();
     }
     public function render()
