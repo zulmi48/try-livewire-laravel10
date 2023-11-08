@@ -2,27 +2,26 @@
 
 namespace App\Livewire\Posts;
 
+use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\Attributes\Rule;
 
 class Create extends Component
 {
-    #[Rule(['required', 'min:3', 'string'])]
-    public string $title ='';
-
     #[Rule(['required'])]
-    public string $body ='';
+    public string $body = '';
 
     public function save()
     {
-        $user = \App\Models\User::find(1);
-        $validated = $this->validate();
-
-        $user->post()->create($validated);
+        $user = Auth::user();
+        $post = $user->post()->create($this->validate());
 
         flash('New data has successfully created', 'success');
 
         $this->reset();
+
+        $this->dispatch('post-created', $post->id);
     }
     public function render()
     {
