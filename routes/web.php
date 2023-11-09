@@ -8,6 +8,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/about', App\Livewire\About::class)->name('about');
     Route::get('/contact', App\Livewire\Contact::class)->name('contact');
     Route::get('/posts', App\Livewire\Posts\Index::class)->name('posts.index');
+    Route::get('/users', App\Livewire\Users\Index::class)->name('users.index');
     Route::get('/users/{user}', App\Livewire\Users\Show::class)->name('users.show');
     Route::post('/logout', App\Http\Controllers\LogoutController::class)->name('logout');
 });

@@ -11,6 +11,7 @@
                 <x-nav-link :active="request()->routeIs('about')" href="{{ route('about') }}">About</x-nav-link>
                 <x-nav-link :active="request()->routeIs('contact')" href="{{ route('contact') }}">Contact</x-nav-link>
                 <x-nav-link :active="request()->routeIs('posts.*')" href="{{ route('posts.index') }}">Posts</x-nav-link>
+                <x-nav-link :active="request()->routeIs('users.*')" href="{{ route('users.index') }}">Users</x-nav-link>
             </ul>
             <ul class="navbar-nav ms-auto">
                 @auth
